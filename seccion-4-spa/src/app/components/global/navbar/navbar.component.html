@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/A-64.png" width="30" height="30" alt="" loading="lazy">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item" routerLinkActive="active"> <!-- Propiedad para establecer una clase al elemento que esta activo -->
+          <a [routerLink]="[ 'home']" class="nav-link"> Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item" outerLinkActive="active">
+          <a [routerLink]="[ 'heroes']" class="nav-link" href="#">Heroes</a>
+        </li>
+
+        <li class="nav-item" outerLinkActive="active">
+          <a [routerLink]="[ 'about']" class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+
+      <div class="form-inline my-2 my-lg-0">
+        <input (keyup.enter)="buscarHeroe(inputBuscar.value)" class="form-control mr-sm-2" placeholder="Heroe..." #inputBuscar >
+        <button (click)="buscarHeroe(inputBuscar.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+      </div>
+
+    </div>
+
+  </nav>

@@ -1,0 +1,21 @@
+<div class="animated fadeIn fast contentMain">
+    <h1>Resultados de la busqueda "<i>{{texto}}</i>"</h1>
+
+    <div class="row animated fadeIn fast" *ngIf="encontrados.length==0">
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                No existen resultado para: {{texto}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card-columns">
+        <!-- Ahora el ngFor lo aplicamos para un componente -->
+        <!-- Con [heroe] podemos pasarle datos al componente hijo -->
+        <!-- Con (heroeSeleccionado) podemos capturar este evento que es emitido por el componente hijo ($event) son los datos emitidos por parte del hijo, este caso index -->
+        <app-heroe-card (heroeSeleccionado)="verHeroe($event)" [heroe]="h" [index]="i" *ngFor="let h of encontrados; let i = index"></app-heroe-card>
+       
+    </div>
+
+</div>
+

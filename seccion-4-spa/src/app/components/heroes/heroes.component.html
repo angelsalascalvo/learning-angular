@@ -1,0 +1,10 @@
+<div class="animated fadeIn fast contentMain">
+    <h1>Todos los Héroes</h1>
+    <div class="card-columns">
+        <!-- Ahora el ngFor lo aplicamos para un componente -->
+        <!-- Con [heroe] podemos pasarle datos al componente hijo -->
+        <!-- Con (heroeSeleccionado) podemos capturar este evento que es emitido por el componente hijo ($event) son los datos emitidos por parte del hijo, este caso index -->
+        <app-heroe-card (heroeSeleccionado)="verHeroe($event)" [heroe]="h" [index]="i" *ngFor="let h of heroes; let i = index"></app-heroe-card>
+    </div>
+</div>
+

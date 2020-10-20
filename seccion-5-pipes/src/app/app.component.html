@@ -1,0 +1,222 @@
+<h1 class="mt-3">Pipes <small>Angular</small></h1>
+
+<div class="row mb-5">
+  <div class="col">
+    <table class="table mt-3">
+      <thead class="thead-dark">
+        <tr>
+          <th>Variable</th>
+          <th>numpe</th>
+          <th>Salida</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>{{nombre}}</td>
+          <td>uppercase</td>
+          <td>{{nombre | uppercase}}</td>
+        </tr>
+
+        <tr>
+          <td>{{nombre}}</td>
+          <td>lowercase</td>
+          <td>{{nombre | lowercase}}</td>
+        </tr>
+
+        <tr>
+          <td>{{nombre}}</td>
+          <td>slice:3</td>
+          <td>{{nombre | slice:3}}</td>
+        </tr>
+
+        <tr>
+          <td>{{nombre}}</td>
+          <td>slice:0:3</td>
+          <td>{{nombre | slice:0:3}}</td>
+        </tr>
+
+        <tr>
+          <td>{{nombre2}}</td>
+          <td>capitalizar:true</td>
+          <td>{{nombre2 | capitalizar:true }}</td>
+        </tr>
+
+        <tr>
+          <td>{{nombre2}}</td>
+          <td>capitalizar:false:2</td>
+          <td>{{nombre2 | capitalizar:false:2 }}</td>
+        </tr>
+        
+        <tr>
+          <td>{{numList}}</td>
+          <td>slice:0:5</td>
+          <td>{{numList | slice:0:5}}</td>
+        </tr>
+
+        <tr>
+          <td>{{num}}</td>
+          <td>number</td>
+          <td>{{num | number}}</td>
+        </tr>
+       
+        <tr>
+          <td>{{num}}</td>
+          <td>number:'1.0-0'</td>
+          <td>{{num | number:'1.0-0'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{num}}</td>
+          <td>number:'3.0-0'</td>
+          <td>{{num | number:'3.0-0'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{num}}</td>
+          <td>number:'3.0-0'</td>
+          <td>{{num | number:'1.0-2'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{num}}</td>
+          <td>number:'3.0-0'</td>
+          <td>{{num | number:'1.0-2'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{porcent}}</td>
+          <td>percent</td>
+          <td>{{porcent | percent}}</td>
+        </tr>
+        
+        <tr>
+          <td>{{porcent}}</td>
+          <td>percent:'2.2-2'</td>
+          <td>{{porcent | percent:'2.2-2'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{salario}}</td>
+          <td>currency</td>
+          <td>{{salario | currency}}</td>
+        </tr>
+     
+        <tr>
+          <td>{{salario}}</td>
+          <td>currency:'EUR'</td>
+          <td>{{salario | currency:'EUR'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{salario}}</td>
+          <td>currency:'EUR':'symbol':'1.0-0'</td>
+          <td>{{salario | currency:'EUR':'symbol':'1.0-0'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{valorPromesa}}</td>
+          <td>async</td>
+          <td>{{valorPromesa | async}}</td> <!-- Espera a que se ejecute -->
+        </tr>
+
+        <!-- Doc Pipe Date: https://angular.io/api/common/DatePipe -->
+
+        <tr>
+          <td>{{fecha}}</td>
+          <td>date</td>
+          <td>{{fecha | date}}</td> 
+        </tr>
+
+        <tr>
+          <td>{{fecha}}</td>
+          <td>date:'medium'</td>
+          <td>{{fecha | date:"medium"}}</td>
+        </tr>
+
+        <tr>
+          <td>{{fecha}}</td>
+          <td>date:'short'</td>
+          <td>{{fecha | date:"short"}}</td>
+        </tr>
+
+        <tr>
+          <td>{{fecha}}</td>
+          <td>date:'MMMM - dd'</td>
+          <td>{{fecha | date:'MMMM - dd'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{fecha}}</td> 
+          <td>date:"MMMM - dd":'':'en'</td>
+          <td>{{fecha | date:"MMMM - dd":'':'en'}}</td>
+        </tr>
+
+        <tr>
+          <td>{{fecha}}</td>
+          <td>
+            <button (click)="setIdioma('es')" class="btn mr-1 btn-primary">Español</button>
+            <button (click)="setIdioma('fr')" class="btn mr-1 btn-secondary">Francés</button>
+            <button (click)="setIdioma('en')" class="btn mr-1 btn-success">Inglés</button>
+          </td>
+          <td>{{fecha | date:"MMMM - dd":'':idioma}}</td>
+        </tr>
+
+
+        <tr>
+          <td>{{nombre}}</td>
+          <td>
+            contrasena:mostrar <br>
+            <button (click)="setMostrar(!mostrar)" class="btn btn-primary">Mostrar/Ocultar</button>
+          </td>
+          <td>{{nombre | contrasena:mostrar}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+    <h4>Slice:5:20</h4>
+    <hr>
+    <ul class="mb-5">
+      <li *ngFor="let a of numList | slice:5:20">{{a}}</li>
+    </ul>
+   
+    <h4>Json</h4>
+    <hr>
+    <div class="mb-5"> 
+      <div class="row">
+        <pre>
+          {{heroe | json}}
+        </pre>
+      </div>
+
+      <div class="row">
+        {{heroe}}
+      </div>
+    </div>
+
+    <h4>Slice:5:20</h4>
+    <hr>
+    <ul class="mb-5">
+      <li *ngFor="let a of numList | slice:5:20">{{a}}</li>
+    </ul>
+   
+    <h4>Domseguro</h4>
+    <hr>
+    <div class="row mb-5">
+      <div class="col">
+        <iframe width="560" 
+          height="315" [src]="videoUrl | domseguro" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    
+
+
+  </div>
+</div>
