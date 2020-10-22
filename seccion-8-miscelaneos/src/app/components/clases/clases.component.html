@@ -1,0 +1,29 @@
+<div [ngClass]="tipoAlerta" class="alert" role="alert">
+  Cambiar la clase de un elemento con [ngClass]
+</div>
+
+<button class="btn btn-primary mr-1" (click)="tipoAlerta = 'alert-info'">
+  Alerta Info
+</button>
+
+<button class="btn btn-primary" (click)="tipoAlerta = 'alert-danger'">
+  Alerta error
+</button>
+
+<p [ngClass]="{'text-danger': propiedades.danger, 'text-info': !propiedades.danger }" class="mt-3">
+  El color del texto cambia en funcion del valor danger del objeto propiedades
+</p>
+
+<button class="btn btn-primary" (click)="propiedades.danger = !propiedades.danger"
+        [ngClass]="{'btn-danger': propiedades.danger, 'btn-info': !propiedades.danger }">
+  Cambiar Propiedad
+</button>
+
+<p class="mt-3">Pulsa el boton de guardar para ejecutar una simulacion de un metodo asincrono de guardar:</p>
+
+<button class="btn btn-primary" (click)="guardar()" [disabled]="loading">
+  <i [ngClass]="{'fa-save': !loading, 'fa-refresh fa-spin':loading}" class="fa fa-save"></i>
+  <span *ngIf="!loading"> Guardar</span>
+  <span *ngIf="loading"> Procesando...</span>
+</button>
+

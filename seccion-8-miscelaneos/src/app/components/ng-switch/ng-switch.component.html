@@ -1,0 +1,25 @@
+
+<select [(ngModel)]="selectOption">
+    <option value="success">Sucess</option>
+    <option value="warning">Warning</option>
+    <option value="info">info</option>
+    <option value="otro">Otro</option>
+</select>
+
+<div [ngSwitch]="selectOption" class="mt-2">
+    <div *ngSwitchCase="'success'" class="alert alert-success" role="alert">
+    A simple success alert—check it out!
+    </div>
+
+    <div *ngSwitchCase="'warning'" class="alert alert-warning" role="alert">
+    A simple warning alert—check it out!
+    </div>
+
+    <div *ngSwitchCase="'info'" class="alert alert-info" role="alert">
+    A simple info alert—check it out!
+    </div>
+
+    <div *ngSwitchDefault class="alert alert-dark" role="alert">
+    Otro mensaje
+    </div>
+</div>
